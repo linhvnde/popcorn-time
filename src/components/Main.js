@@ -1,4 +1,8 @@
-import '../Main.css';
+import './Main.css';
 export const Main = () => {
-  return <p className="Main">This is Main</p>;
+  return (
+    <div className="Main">
+      <p>This is Main</p>
+    </div>
+  );
 };
