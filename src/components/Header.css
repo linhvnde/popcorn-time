@@ -1,4 +1,6 @@
 .Header {
+  background-color: rgba(186, 247, 95, 0.635);
+  padding: 3px;
   font-size: xx-large;
   font-weight: bolder;
 }
