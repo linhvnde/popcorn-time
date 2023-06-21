@@ -1,6 +1,7 @@
 import './Main.css';
 import movies from '../data/movies.json';
 import { useState } from 'react';
+import { Movie } from './Movie';
 export const Main = () => {
   // const moviesArray = [
   //   {
@@ -45,8 +46,12 @@ export const Main = () => {
   return (
     <div className="Main">
       {message}
-
-      {
+      {moviesToDisplay.map((movie) => {
+        //REMEMBER TO RETURN!!!!
+        //REMEMBER TO PASS THE PROPS
+        return <Movie movieDetails={movie} callbackToDelete={deleteMovie} />;
+      })}
+      {/* {
         //JSX not working with forEach as forEach return undefined but map method
         moviesToDisplay.map((movie, index) => {
           //Warning: Each child in a list should have a unique "key" prop.
@@ -72,7 +77,7 @@ export const Main = () => {
             </div>
           );
         })
-      }
+      } */}
     </div>
   );
 };
