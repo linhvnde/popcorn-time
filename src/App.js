@@ -32,7 +32,7 @@ function App() {
 
     const newMovie = {
       //need to be same key-value from movies.json
-      id: 42,
+      id: new Date().getTime().toString(36),
       title: titleInput, //dont need curly braclets cus this is JS not JSX
       year: 2023,
       genres: ['Drama', 'Adventure'],
