@@ -1,8 +1,6 @@
 import './Main.css';
-import movies from '../data/movies.json';
-import { useState } from 'react';
 import { Movie } from './Movie';
-export const Main = () => {
+export const Main = (props) => {
   // const moviesArray = [
   //   {
   //     id: 1,
@@ -21,35 +19,36 @@ export const Main = () => {
   //   },
   // ];
 
-  const deleteMovie = (movieId) => {
-    //NEVER directly modify the array
-    const newList = moviesToDisplay.filter((movie) => {
-      if (movie.id === movieId) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    setMoviesToDisplay(newList);
-    console.log('delete a movie with id....', movieId);
-  };
+  //DELETE MOVIE have to move to parent as the function is modifying state
+  // const deleteMovie = (movieId) => {
+  //   //NEVER directly modify the array
+  //   // const newList = moviesToDisplay.filter((movie) => {
+  //   //   if (movie.id === movieId) {
+  //   //     return false;
+  //   //   } else {
+  //   //     return true;
+  //   //   }
+  //   // });
+  //   // setMoviesToDisplay(newList);
+  //   // console.log('delete a movie with id....', movieId);
+  // };
 
-  //conditional
-  const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
-  let message = '';
-  if (moviesToDisplay.length > 0) {
-    message = <h1>{moviesToDisplay.length} movies</h1>;
-  } else {
-    message = <h1>Sorry no movie to display</h1>;
-  }
+  //CONDITIONAL TO SHOW MESSAGE OF ERROR
+  // let message = '';
+  // if (moviesToDisplay.length > 0) {
+  //   message = <h1>{moviesToDisplay.length} movies</h1>;
+  // } else {
+  //   message = <h1>Sorry no movie to display</h1>;
+  // }
 
+  //RETURN TO RENDER THE COMPONENT
   return (
     <div className="Main">
-      {message}
-      {moviesToDisplay.map((movie) => {
+      {/* {message} */}
+      {props.moviesArrToDisplay.map((movie) => {
         //REMEMBER TO RETURN!!!!
         //REMEMBER TO PASS THE PROPS
-        return <Movie movieDetails={movie} callbackToDelete={deleteMovie} />;
+        return <Movie movieDetails={movie} callbackToDelete={props.callbackToDelete} />;
       })}
       {/* {
         //JSX not working with forEach as forEach return undefined but map method
